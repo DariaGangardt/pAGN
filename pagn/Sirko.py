@@ -2,7 +2,7 @@
 Sirko
 Date: 01/06/23
 
-Authors: Alessandro Trani, Daria Gangardt
+Authors: Alessandro A. Trani, Daria Gangardt
 
 Module that uses the equations from Sirko & Goodman 2003 to produce a self-gravitating Active Galactic Nuclei disc
 

@@ -2,7 +2,7 @@
 Thompson
 Date: 03/06/23
 
-Authors: Alessandro Trani, Daria Gangardt
+Authors: Alessandro A. Trani, Daria Gangardt
 
 Module that uses the equations from Thompson 2005 to produce a self-gravitating Active Galactic Nuclei disc
 
