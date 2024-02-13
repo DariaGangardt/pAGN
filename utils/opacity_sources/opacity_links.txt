@@ -1,0 +1,11 @@
+Iglesias & Rogers 1996 OPAL High temperature opacities
+https://opalopacity.llnl.gov/existing.html
+
+Badnell et al. 2005 OPAL High temperature opacities 
+https://opalopacity.llnl.gov/existing.html
+
+Semenov et al. 2003 Low Temperature Opacities
+https://www2.mpia-hd.mpg.de/~semenov/Opacities/opacities.html
+
+WSU Low Temperature Opacities ( Alexander & Ferguson 1994)
+https://www.wichita.edu/academics/fairmount_college_of_liberal_arts_and_sciences/physics/Research/opacity.php

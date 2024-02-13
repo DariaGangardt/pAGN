@@ -1,0 +1,20 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module pysemenov ! in 
+    interface  ! in :opacitypy
+        subroutine compute_kappa(ross,model,top,shap,rho,T,kappa) ! in :opacitypy:opacitypy.f
+            logical intent(in) :: ross
+            character*3 intent(in) :: model
+            character*1 intent(in) :: top
+            character*1 intent(in) :: shap
+            real*8 intent(in) :: rho
+            real*8 intent(in) :: T
+            real*8 intent(out) :: kappa
+        end subroutine compute_kappa
+    end interface 
+end python module pysemenov
+
+! This file was auto-generated with f2py (version:1.23.0).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e

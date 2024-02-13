@@ -1,0 +1,10 @@
+nrm                      !'model': 'nrm'/'ips'/'irs' silicate types  
+c                        !'top': 'c'/'p'/'h' dust topologies,
+a                        !'shape': 's'/'a'/'5' dust shapes,
+.true.                   !'.true.'/'.false.' - Rosseland/Planck mean op., cm^2/g
+   1.000E-11             !'rho': gas density, g/cm^3
+ 1                     !'N_T': amount of temperature points,
+   1.000E+02             !'T_0': initial temperature, K,
+   9.999E+03             !'T_1': last temperature, K
+
+
