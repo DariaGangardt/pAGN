@@ -1,0 +1,4 @@
+numpy
+scipy>=1.10.0
+os
+matplotlib
