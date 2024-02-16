@@ -42,7 +42,7 @@ jobs:
     - uses: BrianJKoopman/sphinx-action@master
       with:
         build-command: "make html"
-        docs-folder: "docs/source"
+        docs-folder: "docs"
     - name: Commit documentation changes
       run: |
         git clone https://github.com/dgerosa/precession.git --branch gh-pages --single-branch gh-pages
