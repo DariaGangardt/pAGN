@@ -38,11 +38,11 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: examples.rst
-        path: docs
+        path: docs/source
     - uses: BrianJKoopman/sphinx-action@master
       with:
         build-command: "make html"
-        docs-folder: "docs/"
+        docs-folder: "docs/source"
     - name: Commit documentation changes
       run: |
         git clone https://github.com/dgerosa/precession.git --branch gh-pages --single-branch gh-pages
