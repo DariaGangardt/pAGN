@@ -8,8 +8,11 @@
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   self
 
-   user-guide
+   examples
+   
    api
 
 
@@ -19,5 +22,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
-
