@@ -27,7 +27,8 @@ def setup(app):
 
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
-              'sphinx.ext.napoleon',]
+              'sphinx.ext.napoleon',
+              'sphinx_mdinclude',]
 
 templates_path = ['_templates']
 exclude_patterns = []
