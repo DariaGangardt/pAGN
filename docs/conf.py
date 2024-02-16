@@ -12,7 +12,7 @@ author = 'A. A. Trani, D. Gangardt, C. Bonnerot, D. Gerosa'
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../pagn/'))
+sys.path.insert(0, os.path.abspath('../pagn/'))
 
 def skip(app, what, name, obj, would_skip, options):
     if name == "__init__":
