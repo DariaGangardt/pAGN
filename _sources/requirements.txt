@@ -1,0 +1,8 @@
+sphinx
+sphinx_rtd_theme
+numpy
+scipy>=1.10.0
+matplotlib
+sphinx-mdinclude
+nbsphinx
+nb2plots

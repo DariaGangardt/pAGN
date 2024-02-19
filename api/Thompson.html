@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thompson &mdash; pAGN  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Sirko" href="Sirko.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pAGN
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">pAGN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples for pAGN</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Sirko.html">Sirko</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Thompson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Thompson.ThompsonAGN"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.L_Edd"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.L_Edd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.__init__"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.no_starformation"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.no_starformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.plot"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.plot_mdot"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.plot_mdot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.plot_roots_no_star"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.plot_roots_no_star()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.plot_roots_yes_star"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.plot_roots_yes_star()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.solve_disk"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.solve_disk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Thompson.ThompsonAGN.yes_starformation"><code class="docutils literal notranslate"><span class="pre">ThompsonAGN.yes_starformation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pAGN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">Thompson</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/Thompson.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Thompson">
+<span id="thompson"></span><h1>Thompson<a class="headerlink" href="#module-Thompson" title="Link to this heading"></a></h1>
+<p>Thompson
+Date: 03/06/23</p>
+<p>Authors: Alessandro A. Trani, Daria Gangardt</p>
+<p>Module that uses the equations from Thompson 2005 to produce a self-gravitating Active Galactic Nuclei disc</p>
+<p>Contains ThompsonAGN class, which creates an AGN disc object, documented below.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Thompson.</span></span><span class="sig-name descname"><span class="pre">ThompsonAGN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mbh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.98847e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.172e+18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Mdot_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0163459832179886e+25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'combined'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lm'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.L_Edd">
+<span class="sig-name descname"><span class="pre">L_Edd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.L_Edd" title="Link to this definition"></a></dt>
+<dd><p>Method to calculate the Eddington luminosity given a mass and hydrogen abundance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>L</strong> – Eddington luminosity of the Super Massive Black Hole (SMBH) fuelling the AGN in watts.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mbh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.98847e+38</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.172e+18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Mdot_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0163459832179886e+25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'combined'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lm'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.__init__" title="Link to this definition"></a></dt>
+<dd><p>Class that creates an AGN disc object using the equations from Thompson et al. 2005.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Mbh</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 1e8*ct.MSun</em><em>)</em>) – Mass of the Super Massive Black Hole (SMBH) fuelling the AGN in kg.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: None</em><em>)</em>) – Stellar velocity dispersion. If None, calculated using M-Sigma relation. Input in m/s.</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 0.1</em><em>)</em>) – Star formation radiative efficiency parameter.</p></li>
+<li><p><strong>m</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 0.2</em><em>)</em>) – Fraction of local sound speed, conveys angular momentum transport efficiency in AGN.</p></li>
+<li><p><strong>xi</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 1.</em><em>)</em>) – Fraction of pressure from supernovae in total radiated pressure.</p></li>
+<li><p><strong>X</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 0.7</em><em>)</em>) – Hydrogen abundance of gas in AGN disk.</p></li>
+<li><p><strong>Rout</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 200*ct.pc</em><em>)</em>) – Radius at which accretion rate is no longer constant in outer region of AGN disc.
+If None, set to 1e7 Schwarzchild radii. Input in m.</p></li>
+<li><p><strong>Mdot_out</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 320*ct.MSun/ct.yr</em><em>)</em>) – Accretion rate at Rout. If None, scaled to critical accretion rate. Input is in kg/s.</p></li>
+<li><p><strong>Rin</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: None</em><em>)</em>) – Radius of inner boundary of AGN disc. If None, set as 6 gravitational radii of SMBH. Else, input is in m.</p></li>
+<li><p><strong>opacity</strong> (<em>string/tuple</em><em>, </em><em>optional</em><em> (</em><em>default: 'combined'</em><em>)</em>) – <p>Which opacity table to use. Options are “semenov”, which extrapolates values from Semenov et al. 2003 only,
+“combined”, which combines the Semenov et al. 2003 values with the Badnell et al. 2005 values, or a custom
+table of values entered as a tuple made up of three arrays:</p>
+<blockquote>
+<div><p>(opacity 2D array, density 1D array, temperature 1D array). For the custom table, inputs must be in SI units.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>debug</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: False</em><em>)</em>) – Enter debug regime. Code will check root finder operations by printing solutions at every value of r.</p></li>
+<li><p><strong>xtol</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 1e-10</em><em>)</em>) – Tolerance in the root finding method.</p></li>
+<li><p><strong>rootm</strong> (<em>string</em><em>, </em><em>optional</em><em> (</em><em>default: 'lm'</em><em>)</em>) – Root finding method to be used for both star and no star formation regimes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.no_starformation">
+<span class="sig-name descname"><span class="pre">no_starformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.no_starformation" title="Link to this definition"></a></dt>
+<dd><p>The system of equations to find the [log10(T), log10(rho)] values, assuming no starformation,
+pulling known quantities from member variables, using self.i as grid index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – Array of [log10(T), log10(rho)] guesses.</p></li>
+<li><p><strong>set</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: True</em><em>)</em>) – Flag on whether to set member values with current solutions. Set to False when debugging.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sols</strong> – 2d array of equilibrium solutions that needs to be zero</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.plot" title="Link to this definition"></a></dt>
+<dd><p>Simple disk plotting method, can be used to check that disk has been evolved correctly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em><em> (</em><em>default: &quot;all&quot;</em><em>)</em>) – List of parameters to plot, can be any parameter combination from [‘h’, ‘rho’, ‘tau’, ‘T’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.plot_mdot">
+<span class="sig-name descname"><span class="pre">plot_mdot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.plot_mdot" title="Link to this definition"></a></dt>
+<dd><p>Simple accretion rate plotting method, can be used to check that disk has been evolved correctly and that
+the accretion rate is high enough to form a luminous AGN disk</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.plot_roots_no_star">
+<span class="sig-name descname"><span class="pre">plot_roots_no_star</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomguess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.plot_roots_no_star" title="Link to this definition"></a></dt>
+<dd><p>Plots current solution space for root finder in the no star formation regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>guess</strong> (<em>array</em><em>, </em><em>optional</em><em> (</em><em>default: None</em><em>)</em>) – Array of log10(cs), log10(T) guesses to be plotted on solution space.</p></li>
+<li><p><strong>zoomguess</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: False</em><em>)</em>) – Flag to zoom in on given guess in plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.plot_roots_yes_star">
+<span class="sig-name descname"><span class="pre">plot_roots_yes_star</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoomguess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.plot_roots_yes_star" title="Link to this definition"></a></dt>
+<dd><p>Plots current solution space for root finder in the star formation regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>guess</strong> (<em>array</em><em>, </em><em>optional</em><em> (</em><em>default: None</em><em>)</em>) – Array of log10(T), log10(eta) guesses to be plotted on solution space.</p></li>
+<li><p><strong>zoomguess</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: False</em><em>)</em>) – Flag to zoom in on given guess in plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.solve_disk">
+<span class="sig-name descname"><span class="pre">solve_disk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.solve_disk" title="Link to this definition"></a></dt>
+<dd><p>Method to evolve the AGN disc, from outer boundary inwards, using Thompson et al. 2005 equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>N</strong> (<em>float</em><em>, </em><em>optional</em><em> (</em><em>default: 1e4</em><em>)</em>) – Disc radial resolution.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Thompson.ThompsonAGN.yes_starformation">
+<span class="sig-name descname"><span class="pre">yes_starformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Thompson.ThompsonAGN.yes_starformation" title="Link to this definition"></a></dt>
+<dd><p>The system of equations to find the [log10(T), log10(eta)] values, assuming star formation,
+pulling known quantities from member variables, using self.i as grid index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array</em>) – Array of [log10(T), log10(eta)] guesses.</p></li>
+<li><p><strong>set</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default: True</em><em>)</em>) – Flag on whether to set member values with current solutions. Set to False when debugging.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sols</strong> – 2d array of equilibrium solutions that needs to be zero</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Sirko.html" class="btn btn-neutral float-left" title="Sirko" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, A. A. Trani, D. Gangardt, C. Bonnerot, D. Gerosa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
