@@ -10,36 +10,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  jupyter:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v4
-    - run: brew install pandoc
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'
-    - run: pip install -r requirements.txt
-    - run: pip install nb2plots
-    - name: convert
-      run: |
-        cd utils
-        jupyter nbconvert --to notebook --execute examples.ipynb
-        nb2plots examples.nbconvert.ipynb > examples.rst
-    - uses: actions/upload-artifact@v4
-      with:
-        name: examples.rst
-        path: utils/examples.rst
-
-
   builddocs:
-    needs: jupyter
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/download-artifact@v4
-      with:
-        name: examples.rst
-        path: docs
     - uses: BrianJKoopman/sphinx-action@master
       with:
         build-command: "make html"
@@ -59,6 +33,3 @@ jobs:
         branch: gh-pages
         directory: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - uses: geekyeggo/delete-artifact@v4
-      with:
-        name: examples.rst
