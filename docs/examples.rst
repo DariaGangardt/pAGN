@@ -15,11 +15,11 @@ First, import the models from the package:
 
 .. code:: ipython3
 
-    import Thompson
-    import Sirko
+    from pagn import Thompson
+    from pagn import Sirko
     import numpy as np
     import matplotlib.pyplot as plt
-    import constants as ct
+    from pagn import constants as ct
 
 Define input parameters for the AGN disk.
 
