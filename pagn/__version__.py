@@ -4,7 +4,7 @@ Information about the current version of the pAGN package.
 
 __title__ = 'pAGN'
 __description__ = 'Solutions to parametric AGN disk models'
-__version__ = '1.0.0'
+__version__ = '0.0.9'
 __author__ = 'Daria Gangardt and Alessandro A. Trani'
 __author_email__ = 'ddg672@student.bham.ac.uk and aatrani@gmail.com'
 __license__ = 'MIT'
