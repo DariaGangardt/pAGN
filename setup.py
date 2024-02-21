@@ -25,7 +25,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     include_package_data=True,
     install_requires=requires,
-    package_data= {'': ['./opacity_tables/*']}
+    package_data= {'': ['./opacity_tables/*']},
     license=about['__license__'],
     zip_safe=False
 )
