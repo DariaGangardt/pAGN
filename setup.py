@@ -23,6 +23,7 @@ setuptools.setup(
         'Documentation': 'https://DariaGangardt.github.io/pAGN'
     },
     packages=setuptools.find_packages(),
+    package_dir = {"":"."}
     include_package_data=True,
     install_requires=requires,
     package_data= {'': ['./opacity_tables/*']},
