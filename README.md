@@ -2,7 +2,7 @@
 
 `pAGN` is a Python module to solve the equations from [Sirko and Goodman 2003](https://academic.oup.com/mnras/article/341/2/501/1105444) and [Thompson et al. 2005](https://iopscience.iop.org/article/10.1086/431923) in a way that is simple, clear and highly customisable. Our aim is to provide a code that with the correct inputs provides a fully evolved AGN disk model through parametric 1D curves for key disk parameters such as temperature and density. We expect key applications of this code to be studies of migration torques in AGN disks, simulations of compact object formation inside gas disks, and comparisons with new, more complex models of AGN disks.
 
-`pAGN` is under the MIT licence. Please use `pAGN` as you like but cite our work using the DOI above. 
+`pAGN` is under the GPLv3 licence. Please use `pAGN` as you like but cite our work using the DOI above. 
 
 The code is distributed under git version control at
 - [github.com/DariaGangardt/pAGN](https://github.com/DariaGangardt/pAGN)
