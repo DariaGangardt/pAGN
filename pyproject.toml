@@ -1,16 +1,29 @@
 [build-system]
-requires = [
-      "setuptools",
-      "numpy",
-      "scipy >= 1.10.0",
-      "matplotlib"
-]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
 
 [project]
 name = "pagn"
 description = "Solutions to parametric AGN disk models"
+authors = [
+  {name = "Daria Gangardt", email = "ddg672@student.bham.ac.uk"},
+  {name = "Alessandro A. Trani", email = "aatrani@gmail.com"},
+]
 readme = "README.md"
-dynamic = ["version"]
 license.file = "LICENSE"
+dynamic = ["version"]
+dependencies = [
+      "numpy",
+      "scipy >= 1.10.0",
+      "matplotlib"
+]
+
+[project.urls]
+Documentation = "https://dariagangardt.github.io/pAGN/"
+Repository = "https://github.com/DariaGangardt/pAGN"

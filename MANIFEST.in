@@ -1,2 +1,2 @@
 include requirements.txt
-include pagn/opacity_table
+include pagn/opacity_tables/*dat
