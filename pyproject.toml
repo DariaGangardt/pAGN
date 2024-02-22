@@ -1,0 +1,16 @@
+[build-system]
+requires = [
+      "setuptools",
+      "numpy",
+      "scipy >= 1.10.0",
+      "matplotlib"
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "pagn"
+description = "Solutions to parametric AGN disk models"
+readme = "README.md"
+dynamic = ["version"]
+license.file = "LICENSE"

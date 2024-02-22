@@ -10,8 +10,6 @@ with open ('requirements.txt', 'r') as _:
     requires = [line.split()[0] for line in _]
 
 setuptools.setup(
-    name=about['__title__'],
-    description=about['__description__'],
     long_description='See: '+about['__url__'],
     long_description_content_type='text/markdown',
     version=about['__version__'],
@@ -27,6 +25,5 @@ setuptools.setup(
     include_package_data=True,
     install_requires=requires,
     package_data= {'': ['./opacity_tables/*']},
-    license=about['__license__'],
     zip_safe=False
 )
