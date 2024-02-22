@@ -12,8 +12,8 @@ Contains SirkoAGN class, which creates an AGN disc object, documented below.
 
 import matplotlib.pyplot as plt
 import numpy as np
-import constants as ct
-from opacities import electron_scattering_opacity, get_semenov2003_opacity, get_combined_opacity, get_custom_opacity
+from . import constants as ct
+from .opacities import electron_scattering_opacity, get_semenov2003_opacity, get_combined_opacity, get_custom_opacity
 from scipy.optimize import root
 import matplotlib.colors as mpl_col
 
