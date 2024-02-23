@@ -25,5 +25,5 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://dariagangardt.github.io/pAGN/"
-Repository = "https://github.com/DariaGangardt/pAGN"
+Documentation = "https://dariagangardt.github.io/pagn/"
+Repository = "https://github.com/DariaGangardt/pagn"
