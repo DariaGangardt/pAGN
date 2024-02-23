@@ -1,7 +1,7 @@
-Examples for pAGN
+Examples for pagn
 =================
 
-These are some of the examples for the pAGN package; which uses the
+These are some of the examples for the pagn package; which uses the
 equations from `Sirko and Goodman
 2003 <https://academic.oup.com/mnras/article/341/2/501/1105444>`__ and
 `Thompson et
@@ -15,11 +15,62 @@ First, import the models from the package:
 
 .. code:: ipython3
 
-    import Thompson
-    import Sirko
+    from pagn import Thompson
+    from pagn import Sirko
     import numpy as np
     import matplotlib.pyplot as plt
-    import constants as ct
+    import pagn.constants as ct
+
+
+To quickly test pagn, try printing the default disk parameters:
+
+.. code:: ipython3
+
+    s = Sirko.SirkoAGN()
+    t = Thompson.ThompsonAGN()
+
+
+.. parsed-literal::
+
+    ### Sirko & Goodman 2003 parameters ###
+    Mbh = 1.000000e+08 MSun
+    Mdot = 1.298344e+00 MSun/yr
+    le = 0.5
+    Rs = 9.570121e-06 pc
+    Rmin = 2.500000e+00 Rs
+    Rmax = 1.000000e+07 Rs, 9.570121e+01 pc
+    alpha = 0.01
+    b = 0
+    eps = 0.1
+    X = 0.7
+    Opacity = combined
+    
+    debug = False
+    xtol = 1e-10
+    root method = lm
+    sigma from M using M-sigma relation
+    ### Thompson et al. 2005 parameters ###
+    Mbh = 1.000000e+08 MSun
+    Mdot_out = 3.200000e+02 MSun/yr
+    Rs = 9.570121e-06 pc
+    Rin = 3.000000e+00 Rs
+    Rout = 2.089838e+07 Rs = 2.000000e+02 pc
+    sigma = 1.879994e+02 km/s
+    epsilon =  0.001
+    m =  0.2
+    xi =  1.0
+    Opacity = combined
+    
+    debug = False
+    xtol = 1e-10
+    root method = lm
+
+
+The output should look the same as the one above. Once this small check
+has been done, we can move on to evolving our disks.
+
+Evolving AGN disks
+------------------
 
 Define input parameters for the AGN disk.
 
@@ -75,12 +126,12 @@ plot some key parameters
 
 
 
-.. image:: output_12_0.png
+.. image:: output_16_0.png
 
 
 The Sirko & Goodman model tends to be simpler than the Thompson et al
 model. We expect the temperature of the disk to decrease with distance
-from the central BH, starting at values of 10\ :sup:`5-10`\ 6 Kelvin,
+from the central BH, starting at values of :math:`10^5-10^6` Kelvin,
 depending on the mass of the central BH. The h/r ratio should stay below
 one, at least in the inner regions of the disk. The vertical line shows
 where we have switched from the inner regime to the outer regime.
@@ -93,18 +144,18 @@ We can similarly check the Thompson et al model ran correctly.
 
 
 
-.. image:: output_15_0.png
+.. image:: output_19_0.png
 
 
 The Thompson et al. model tends to be more complicated than the Sirko &
 Goodman model. We expect the temperature of the disk to decrease with
-distance from the central BH, starting at values of 10^5 Kelvin and
-dropping to lower temperature values than for the Sirko & Goodman case,
-depending on the mass of the central BH. The optical depth :math:`\tau`
-should look more complex than in the Sirko & Goodman case. The h/r ratio
-should stay below one, at least in the inner regions of the disk. The
-vertical line shows where we have switched from the inner regime to the
-outer regime.
+distance from the central BH, starting at values of :math:`10^5` Kelvin
+and dropping to lower temperature values than for the Sirko & Goodman
+case, depending on the mass of the central BH. The optical depth
+:math:`\tau` should look more complex than in the Sirko & Goodman case.
+The h/r ratio should stay below one, at least in the inner regions of
+the disk. The vertical line shows where we have switched from the inner
+regime to the outer regime.
 
 A significant difference between the Thompson et al. model and the Sirko
 and Goodman model is that the Thompson et al. model has a varying
@@ -127,7 +178,7 @@ the Thompson et al. disk:
 
 
 
-.. image:: output_18_1.png
+.. image:: output_22_1.png
 
 
 We see that in this case, :math:`\dot{M}_{\rm out}` is below the
@@ -189,7 +240,6 @@ models.
     opacity = (kappa_arr, rho_arr, temp_arr)
 
 
-
 .. parsed-literal::
 
     (10, 1001)
@@ -202,6 +252,7 @@ models.
     sk_co = Sirko.SirkoAGN(opacity = opacity)
     sk_co.solve_disk() ;
     
+    #the Thompson et al. model with this custom opacity
     tho_co = Thompson.ThompsonAGN(opacity = opacity)
     tho_co.solve_disk() ;
 
@@ -213,11 +264,11 @@ models.
 
 
 
-.. image:: output_26_0.png
+.. image:: output_30_0.png
 
 
 
-.. image:: output_26_1.png
+.. image:: output_30_1.png
 
 
 .. code:: ipython3
@@ -231,7 +282,7 @@ models.
 
 
 
-.. image:: output_27_0.png
+.. image:: output_31_0.png
 
 
 Unsurprisingly, we get a flat line for our :math:`\kappa` values.
@@ -286,20 +337,20 @@ We approximate these integrals as sums:
 
 .. code:: ipython3
 
-    print("Luminosity of Thompson et al. 2005 disk: ", calculate_lum_sum(tho.Teff4**0.25, 1e-8, 1e-3, tho.R, tho.deltaR)/ct.MSun, " solar masses")
-    print("Luminosity of Sirko & Goodman 2003 disk: ", calculate_lum_sum(sk.Teff4**0.25, 1e-8, 1e-3, sk.R, sk.deltaR)/ct.MSun, " solar masses")
+    print("Luminosity of Thompson et al. 2005 disk: ", calculate_lum_sum(tho.Teff4**0.25, 1e-8, 1e-3, tho.R, tho.deltaR)/ct.LSun, " solar luminosities")
+    print("Luminosity of Sirko & Goodman 2003 disk: ", calculate_lum_sum(sk.Teff4**0.25, 1e-8, 1e-3, sk.R, sk.deltaR)/ct.LSun, " solar luminosities")
 
 
 .. parsed-literal::
 
-    Luminosity of Thompson et al. 2005 disk:  34293147.65792057  solar masses
-    Luminosity of Sirko & Goodman 2003 disk:  203993554.80691633  solar masses
+    Luminosity of Thompson et al. 2005 disk:  177303419977.49695  solar luminosities
+    Luminosity of Sirko & Goodman 2003 disk:  1054693353944.121  solar luminosities
 
 
 Use Case: Migration Torques
 ---------------------------
 
-Below, we provide the code for a more in depth use case of pAGN, looking
+Below, we provide the code for a more in depth use case of pagn, looking
 at the migration torques a 50 M\ :math:`_\odot` BH in an AGN would
 experience while orbiting a central BH. We use the equations from
 `Grishin et al. 2023 <https://arxiv.org/pdf/2307.07546.pdf>`__
@@ -603,8 +654,9 @@ experience while orbiting a central BH. We use the equations from
     for dname in disk_name:
         Mbh = 1e6
         q = 5e-6
+        
+        #generate the disk values for both AGN disk models using pagn
         if dname == 'thompson':
-    
             objin = Thompson.ThompsonAGN(Mbh = Mbh*ct.MSun, Mdot_out=0.,) #Sirko.SirkoAGN(Mbh = Mbh, b=0)  #
             rout = objin.Rs*(1e7)
             sigma = 200 * (Mbh / 1.3e8) ** (1 / 4.24)
@@ -731,6 +783,6 @@ experience while orbiting a central BH. We use the equations from
 
 
 
-.. image:: output_39_0.png
+.. image:: output_43_0.png
 
 
