@@ -1,6 +1,6 @@
 Thompson
 --------
 
-.. automodule:: Thompson
+.. automodule:: pagn.Thompson
     :members:
     :undoc-members:

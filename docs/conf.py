@@ -6,13 +6,13 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'pAGN'
+project = 'pagn'
 copyright = '2024, A. A. Trani, D. Gangardt, C. Bonnerot, D. Gerosa'
 author = 'A. A. Trani, D. Gangardt, C. Bonnerot, D. Gerosa'
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../pagn/'))
+sys.path.insert(0, os.path.abspath('../'))
 
 def skip(app, what, name, obj, would_skip, options):
     if name == "__init__":
@@ -46,4 +46,4 @@ source_suffix = {
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+#html_static_path = ['_static']
