@@ -5,7 +5,7 @@
 `pagn` is under the GPLv3 licence. Please use `pagn` as you like but cite our work using the DOI above. 
 
 The code is distributed under git version control at
-- [github.com/DariaGangardt/pAGN](https://github.com/DariaGangardt/pagn)
+- [github.com/DariaGangardt/pagn](https://github.com/DariaGangardt/pagn)
 
 To install the code, use:
 	
