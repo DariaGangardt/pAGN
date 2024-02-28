@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/10723301.svg)](https://zenodo.org/badge/latestdoi/10723301)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10723302.svg)](https://doi.org/10.5281/zenodo.10723302)
 
 ## pagn
 
