@@ -15,8 +15,8 @@ First, import the models from the package:
 
 .. code:: ipython3
 
-    from pagn import Thompson
-    from pagn import Sirko
+    from pagn import ThompsonAGN
+    from pagn import SirkoAGN
     import numpy as np
     import matplotlib.pyplot as plt
     import pagn.constants as ct
@@ -26,8 +26,8 @@ To quickly test pagn, try printing the default disk parameters:
 
 .. code:: ipython3
 
-    s = Sirko.SirkoAGN()
-    t = Thompson.ThompsonAGN()
+    s = SirkoAGN()
+    t = ThompsonAGN()
 
 
 .. parsed-literal::
@@ -106,14 +106,14 @@ what the outputs of the scalings are.
 .. code:: ipython3
 
     %%capture
-    sk = Sirko.SirkoAGN(Mbh=Mbh, le=le, Mdot=Mdot, alpha=alpha, X=X, 
+    sk = SirkoAGN(Mbh=Mbh, le=le, Mdot=Mdot, alpha=alpha, X=X, 
                         b=b, opacity = Opacity)
     sk.solve_disk(N=1e4) ; #10^4 tends to be a sufficient resolution for most Mbh values
 
 .. code:: ipython3
 
     %%capture
-    tho = Thompson.ThompsonAGN(Mbh = mbh, sigma = sigma, epsilon = epsilon, m = m, xi = xi,
+    tho = ThompsonAGN(Mbh = mbh, sigma = sigma, epsilon = epsilon, m = m, xi = xi,
                           Mdot_out= Mdot_out, Rout = Rout, Rin = Rin, opacity =opacity)
     tho.solve_disk(N=1e4) ;
 
@@ -249,11 +249,11 @@ models.
 
     %%capture
     #the Sirko & Goodman model with this custom opacity
-    sk_co = Sirko.SirkoAGN(opacity = opacity)
+    sk_co = SirkoAGN(opacity = opacity)
     sk_co.solve_disk() ;
     
     #the Thompson et al. model with this custom opacity
-    tho_co = Thompson.ThompsonAGN(opacity = opacity)
+    tho_co = ThompsonAGN(opacity = opacity)
     tho_co.solve_disk() ;
 
 .. code:: ipython3
@@ -657,16 +657,16 @@ experience while orbiting a central BH. We use the equations from
         
         #generate the disk values for both AGN disk models using pagn
         if dname == 'thompson':
-            objin = Thompson.ThompsonAGN(Mbh = Mbh*ct.MSun, Mdot_out=0.,) #Sirko.SirkoAGN(Mbh = Mbh, b=0)  #
+            objin = ThompsonAGN(Mbh = Mbh*ct.MSun, Mdot_out=0.,)
             rout = objin.Rs*(1e7)
             sigma = 200 * (Mbh / 1.3e8) ** (1 / 4.24)
             Mdot_out = 1.5e-2
-            obj = Thompson.ThompsonAGN(Mbh=Mbh*ct.MSun, Rout = rout, Mdot_out=Mdot_out*ct.MSun/ct.yr)  # Sirko.SirkoAGN(Mbh = Mbh, b=0)  #
+            obj = ThompsonAGN(Mbh=Mbh*ct.MSun, Rout = rout, Mdot_out=Mdot_out*ct.MSun/ct.yr)
             obj.solve_disk(N=1e4) ;
         else:
             le = 0.5
             alpha = 0.01
-            obj = Sirko.SirkoAGN(Mbh=Mbh*ct.MSun, le=le, alpha=alpha, b=0)
+            obj = SirkoAGN(Mbh=Mbh*ct.MSun, le=le, alpha=alpha, b=0)
             obj.solve_disk(N=1e4) ;
     
         Gamma_0 = gamma_0(q, obj.h / obj.R, 2 * obj.rho * obj.h, obj.R, obj.Omega)
