@@ -18,4 +18,4 @@ Documentation can be found [here](https://DariaGangardt.github.io/pagn), where w
 The code is maintained by Daria Gangardt and [Alessandro A. Trani](https://alessandrotrani.space). Please report bugs, errors and provide suggestions using github.
 Repository template provided by Davide Gerosa.
 
-We hope that you find `pAGN` useful and that it saves you lots of time!
+We hope that you find `pagn` useful and that it saves you lots of time!
