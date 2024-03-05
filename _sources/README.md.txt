@@ -7,15 +7,15 @@
 `pagn` is under the GPLv3 licence. Please use `pagn` as you like but cite our work using the DOI above. 
 
 The code is distributed under git version control at
-- [github.com/DariaGangardt/pagn](https://github.com/DariaGangardt/pagn)
+- [github.com/DariaGangardt/pAGN](https://github.com/DariaGangardt/pAGN)
 
 To install the code, use:
 	
 	pip install pagn
 
-Documentation can be found [here](https://DariaGangardt.github.io/pagn), where we also provide examples for how to run the code.
+Documentation can be found [here](https://DariaGangardt.github.io/pAGN), where we also provide examples for how to run the code.
 
 The code is maintained by Daria Gangardt and [Alessandro A. Trani](https://alessandrotrani.space). Please report bugs, errors and provide suggestions using github.
 Repository template provided by Davide Gerosa.
 
-We hope that you find `pAGN` useful and that it saves you lots of time!
+We hope that you find `pagn` useful and that it saves you lots of time!
