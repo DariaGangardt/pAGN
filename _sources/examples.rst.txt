@@ -15,19 +15,18 @@ First, import the models from the package:
 
 .. code:: ipython3
 
-    from pagn import ThompsonAGN
-    from pagn import SirkoAGN
+    from pagn import Thompson
+    from pagn import Sirko
     import numpy as np
     import matplotlib.pyplot as plt
     import pagn.constants as ct
-
 
 To quickly test pagn, try printing the default disk parameters:
 
 .. code:: ipython3
 
-    s = SirkoAGN()
-    t = ThompsonAGN()
+    s = Sirko.SirkoAGN()
+    t = Thompson.ThompsonAGN()
 
 
 .. parsed-literal::
@@ -106,14 +105,14 @@ what the outputs of the scalings are.
 .. code:: ipython3
 
     %%capture
-    sk = SirkoAGN(Mbh=Mbh, le=le, Mdot=Mdot, alpha=alpha, X=X, 
+    sk = Sirko.SirkoAGN(Mbh=Mbh, le=le, Mdot=Mdot, alpha=alpha, X=X, 
                         b=b, opacity = Opacity)
     sk.solve_disk(N=1e4) ; #10^4 tends to be a sufficient resolution for most Mbh values
 
 .. code:: ipython3
 
     %%capture
-    tho = ThompsonAGN(Mbh = mbh, sigma = sigma, epsilon = epsilon, m = m, xi = xi,
+    tho = Thompson.ThompsonAGN(Mbh = mbh, sigma = sigma, epsilon = epsilon, m = m, xi = xi,
                           Mdot_out= Mdot_out, Rout = Rout, Rin = Rin, opacity =opacity)
     tho.solve_disk(N=1e4) ;
 
@@ -249,11 +248,11 @@ models.
 
     %%capture
     #the Sirko & Goodman model with this custom opacity
-    sk_co = SirkoAGN(opacity = opacity)
+    sk_co = Sirko.SirkoAGN(opacity = opacity)
     sk_co.solve_disk() ;
     
     #the Thompson et al. model with this custom opacity
-    tho_co = ThompsonAGN(opacity = opacity)
+    tho_co = Thompson.ThompsonAGN(opacity = opacity)
     tho_co.solve_disk() ;
 
 .. code:: ipython3
@@ -608,7 +607,7 @@ experience while orbiting a central BH. We use the equations from
     
     def gamma_thermal(gamma, obj, q):
         """
-        Method to calculate the thermal torque from the Masset 2017 equations.
+        Method to calculate the thermal torque from the Masset 2017 equations, with decay and torque saturation.
     
         Parameters
         ----------
@@ -627,22 +626,29 @@ experience while orbiting a central BH. We use the equations from
         xi = 16 * gamma * (gamma - 1) * ct.sigmaSB * (obj.T * obj.T * obj.T * obj.T) \
              / (3 * obj.kappa * obj.rho * obj.rho * obj.h * obj.h * obj.Omega * obj.Omega)
         mbh = obj.Mbh*q
+        muth = xi * obj.cs / (ct.G * mbh)
+    
         Lc = 4*np.pi*ct.G*mbh*obj.rho*xi/gamma
         lam = np.sqrt(2*xi/(3*gamma*obj.Omega))
     
         dP = -dPdR(obj)
         xc = dP*obj.h*obj.h/(3*gamma*obj.R)
     
-        # eta = -dSigmadR(obj)/3 + (-dTdR(obj) + 3)/6
-        # xc = eta*obj.h*obj.h/obj.R
         kes = electron_scattering_opacity(X=0.7)
         L = 4 * np.pi * ct.G * ct.c * mbh / kes
-        g_thermal = 1.61*(gamma - 1)*xc*(L/Lc - 1)/(gamma*lam)
-        return g_thermal
+    
+        g_hot = 1.61*(gamma - 1)*xc*L/(Lc*gamma*lam)
+        g_cold = -1.61*(gamma - 1)*xc/(gamma*lam)
+        g_thermal = g_hot + g_cold
+        g_thermal_new = g_hot*(4*muth/(1+4*muth)) + g_cold*(2*muth/(1+2*muth))
+        g_thermal[muth < 1] = g_thermal_new[muth < 1]
+        decay = 1 - np.exp(-lam*obj.tauV/obj.h)
+        return g_thermal*decay
 
 .. code:: ipython3
 
-    %%capture
+    from IPython.display import clear_output
+    
     disk_name = ['sirko', 'thompson']
     d_counter = 0
     
@@ -657,17 +663,17 @@ experience while orbiting a central BH. We use the equations from
         
         #generate the disk values for both AGN disk models using pagn
         if dname == 'thompson':
-            objin = ThompsonAGN(Mbh = Mbh*ct.MSun, Mdot_out=0.,)
+            objin = Thompson.ThompsonAGN(Mbh = Mbh*ct.MSun, Mdot_out=0.,)
             rout = objin.Rs*(1e7)
             sigma = 200 * (Mbh / 1.3e8) ** (1 / 4.24)
             Mdot_out = 1.5e-2
-            obj = ThompsonAGN(Mbh=Mbh*ct.MSun, Rout = rout, Mdot_out=Mdot_out*ct.MSun/ct.yr)
-            obj.solve_disk(N=1e4) ;
+            obj = Thompson.ThompsonAGN(Mbh=Mbh*ct.MSun, Rout = rout, Mdot_out=Mdot_out*ct.MSun/ct.yr)
+            clear_output(obj.solve_disk(N=1e4))
         else:
             le = 0.5
             alpha = 0.01
-            obj = SirkoAGN(Mbh=Mbh*ct.MSun, le=le, alpha=alpha, b=0)
-            obj.solve_disk(N=1e4) ;
+            obj = Sirko.SirkoAGN(Mbh=Mbh*ct.MSun, le=le, alpha=alpha, b=0)
+            clear_output(obj.solve_disk(N=1e4))
     
         Gamma_0 = gamma_0(q, obj.h / obj.R, 2 * obj.rho * obj.h, obj.R, obj.Omega)
     
@@ -702,18 +708,18 @@ experience while orbiting a central BH. We use the equations from
             ignnum = 0
             ignum2 = 0
             for iseg, seg in enumerate(Gammas):
-                if seg[0] > 0.:
-                    if Rs[iseg][0] / obj.Rs > ignnum + 50:
+                if seg[0] < 0.:
+                    if Rs[iseg][0] / obj.Rs > ignnum + 40:
                         ax[iGamma].axvline(Rs[iseg][0] / obj.Rs, -100, 100, color = 'k', alpha = 0.1)
                         ignnum = Rs[iseg][0] / obj.Rs
     
-                    ax[iGamma].plot(Rs[iseg]/obj.Rs, abs(seg)*ct.SI_to_gcm2, c='C0', zorder = 2)
-                    if iGamma == 2 and Rs[iseg][0] / obj.Rs > ignum2 + 50:
+                    ax[iGamma].plot(Rs[iseg]/obj.Rs, abs(seg)*ct.SI_to_gcm2, c='C1', zorder = 2)
+                    if iGamma == 2 and Rs[iseg][0] / obj.Rs > ignum2 + 40:
                         ax[3].axvline(Rs[iseg][0] / obj.Rs, -100, 100, color='k', alpha=0.1)
                         ignum2 = Rs[iseg][0] / obj.Rs
     
                 else:
-                    ax[iGamma].plot(Rs[iseg] / obj.Rs, abs(seg*ct.SI_to_gcm2) , c='C1', zorder = 2)
+                    ax[iGamma].plot(Rs[iseg] / obj.Rs, abs(seg*ct.SI_to_gcm2) , c='C0', zorder = 2)
             if iGamma == 0:
                 Gamma2 = Gamma_I_p10
                 maskg2 = Gamma2 >= 0
@@ -721,20 +727,18 @@ experience while orbiting a central BH. We use the equations from
                 Gammas2 = np.split(Gamma2, indices2)
                 Rs2 = np.split(obj.R, indices2)
                 for iseg2, seg2 in enumerate(Gammas2):
-    
-                    if seg2[0] > 0.:
-                        ax[iGamma].plot(Rs2[iseg2] / obj.Rs, abs(seg2), c='C0', zorder = 1, alpha = 0.4)
-                    else:
+                    if seg2[0] < 0.:
                         ax[iGamma].plot(Rs2[iseg2] / obj.Rs, abs(seg2), c='C1', zorder = 1, alpha = 0.4)
+    
+                    else:
+                        ax[iGamma].plot(Rs2[iseg2] / obj.Rs, abs(seg2), c='C0', zorder = 1, alpha = 0.4)
         ax[3].plot(obj.R/obj.Rs, 2*obj.h*obj.rho*ct.SI_to_gcm2, label = r"$\Sigma_{\rm g} [{\rm g cm}^{-2}]$")
-    
-    
         d_counter += 1
         
     pos_line = mlines.Line2D([], [], color='C0', marker='s',
-                               markersize=0, label=r'$\rm{Inward}$')
+                               markersize=0, label=r'$\rm{Outward}$')
     neg_line = mlines.Line2D([], [], color='C1', marker='s',
-                                markersize=0, label=r'$\rm{Outward}$')
+                                markersize=0, label=r'$\rm{Inward}$')
     artists_handles = [pos_line, neg_line]
     axes[2, 1].legend(handles=artists_handles, framealpha = 1)
     
@@ -742,6 +746,7 @@ experience while orbiting a central BH. We use the equations from
                              markersize=0,)
     neg_line2 = mlines.Line2D([], [], color='C1', marker='s', alpha = 0.4,
                              markersize=0,)
+    
     from matplotlib.legend_handler import HandlerLine2D, HandlerTuple
     axes[0,1].legend(handles=[(pos_line, neg_line), (pos_line2, neg_line2,) ],
                      labels=[r'${\rm Jim \acute{e} nez \, and \, Masset \, (2017)}$', r'$\rm Paardekooper \, et \, al. \, (2010)$',],
@@ -774,15 +779,9 @@ experience while orbiting a central BH. We use the equations from
     axes[0,1].set_xlim((1.1e1, 1e7))
     
     f.align_ylabels()
-
-
-.. code:: ipython3
-
-    f
+    plt.show()
 
 
 
-
-.. image:: output_43_0.png
-
+.. image:: output_42_0.png
 
