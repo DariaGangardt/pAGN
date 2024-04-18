@@ -9,3 +9,6 @@ https://www2.mpia-hd.mpg.de/~semenov/Opacities/opacities.html
 
 WSU Low Temperature Opacities ( Alexander & Ferguson 1994)
 https://www.wichita.edu/academics/fairmount_college_of_liberal_arts_and_sciences/physics/Research/opacity.php
+
+Draine Opacity with Graphite
+https://www.astro.princeton.edu/~draine/dust/dust.diel.html
