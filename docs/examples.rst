@@ -357,7 +357,7 @@ experience while orbiting a central BH. We use the equations from
 .. code:: ipython3
 
     from scipy.interpolate import UnivariateSpline
-    from opacities import electron_scattering_opacity
+    from pagn.opacities import electron_scattering_opacity
     import matplotlib.lines as mlines
 
 .. code:: ipython3
@@ -627,6 +627,8 @@ experience while orbiting a central BH. We use the equations from
              / (3 * obj.kappa * obj.rho * obj.rho * obj.h * obj.h * obj.Omega * obj.Omega)
         mbh = obj.Mbh*q
         muth = xi * obj.cs / (ct.G * mbh)
+        R_Bhalf = ct.G*mbh/obj.cs**2
+        muth[obj.h<R_Bhalf] = (xi / (obj.cs*obj.h))[obj.h<R_Bhalf]
     
         Lc = 4*np.pi*ct.G*mbh*obj.rho*xi/gamma
         lam = np.sqrt(2*xi/(3*gamma*obj.Omega))
