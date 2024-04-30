@@ -15,7 +15,10 @@ To install the code, use:
 
 Documentation can be found [here](https://DariaGangardt.github.io/pAGN), where we also provide examples for how to run the code.
 
-The code is maintained by Daria Gangardt and [Alessandro A. Trani](https://alessandrotrani.space). Please report bugs, errors and provide suggestions using github.
-Repository template provided by Davide Gerosa.
+The code is maintained by Daria Gangardt and [Alessandro A. Trani](https://alessandrotrani.space). Please report bugs, errors and provide suggestions using github. Repository template provided by Davide Gerosa.
+
+If you use `pagn`, please cite our paper:
+- *pAGN: the one-stop solution for AGN disc modeling.* Daria Gangardt, Alessandro Alberto Trani, Clément Bonnerot, Davide Gerosa.
+Monthly Notices of the Royal Astronomical Society. [arXiv:2403.00060](https://arxiv.org/abs/2403.00060) [astro-ph.HE].
 
 We hope that you find `pagn` useful and that it saves you lots of time!
