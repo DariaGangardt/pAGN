@@ -1,21 +1,44 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10723301.svg)](https://doi.org/10.5281/zenodo.10723301)
+pagn
+====
 
-## pagn
+.. danger::
 
-`pagn` is a Python module to solve the equations from [Sirko and Goodman 2003](https://academic.oup.com/mnras/article/341/2/501/1105444) and [Thompson et al. 2005](https://iopscience.iop.org/article/10.1086/431923) in a way that is simple, clear and highly customisable. Our aim is to provide a code that with the correct inputs provides a fully evolved AGN disk model through parametric 1D curves for key disk parameters such as temperature and density. We expect key applications of this code to be studies of migration torques in AGN disks, simulations of compact object formation inside gas disks, and comparisons with new, more complex models of AGN disks.
+   **Repository status:** This repository is archived and no longer maintained.
 
-`pagn` is under the GPLv3 licence. Please use `pagn` as you like but cite our work using the DOI above. 
+   The project has moved to GitLab:
 
-The code is distributed under git version control at
-- [github.com/DariaGangardt/pAGN](https://github.com/DariaGangardt/pAGN)
+   * **Code repository:** https://gitlab.com/aatrani/pagn
+   * **Documentation:** https://aatrani.gitlab.io/pagn
 
-To install the code, use:
-	
-	pip install pagn
+   Please use the GitLab repository for the latest version, issue tracking, and contributions.
 
-Documentation can be found [here](https://DariaGangardt.github.io/pAGN), where we also provide examples for how to run the code.
+``pagn`` is a Python module to solve the equations presented in Sirko & Goodman (2003) and Thompson et al. (2005), providing fully evolved AGN disk models through parametric one-dimensional profiles of key disk properties such as temperature and density.
 
-The code is maintained by Daria Gangardt and [Alessandro A. Trani](https://alessandrotrani.space). Please report bugs, errors and provide suggestions using github.
-Repository template provided by Davide Gerosa.
+Typical applications include:
 
-We hope that you find `pagn` useful and that it saves you lots of time!
+* Migration torque calculations in AGN disks.
+* Studies of compact-object formation and evolution in gaseous disks.
+* Comparisons with more sophisticated AGN disk models.
+* Population synthesis and gravitational-wave source modeling in AGN environments.
+
+Installation
+------------
+
+The package is available on PyPI and can be installed with:
+
+.. code-block:: bash
+
+   pip install pagn
+
+Citation
+--------
+
+If you use ``pagn`` in your research, please cite:
+
+    Gangardt, D., Trani, A. A., Bonnerot, C., & Gerosa, D. (2024),
+    *pAGN: the one-stop solution for AGN disc modeling*,
+    Monthly Notices of the Royal Astronomical Society.
+
+- `arXiv:2403.00060 <https://arxiv.org/abs/2403.00060>`_
+- `SciX link <https://scixplorer.org/abs/2024MNRAS.530.3689G/abstract>`_
+- `DOI: 10.1093/mnras/stae1117 <https://doi.org/10.1093/mnras/stae1117>`_

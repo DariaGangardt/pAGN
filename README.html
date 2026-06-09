@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pagn &mdash; pagn  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -42,13 +40,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">pagn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples for pagn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pagn</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#citation">Citation</a></li>
 </ul>
-
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -73,23 +73,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.10723301"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.10723301.svg" /></a>
-<section id="pagn">
+  <section id="pagn">
 <h1>pagn<a class="headerlink" href="#pagn" title="Link to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">pagn</span></code> is a Python module to solve the equations from <a class="reference external" href="https://academic.oup.com/mnras/article/341/2/501/1105444">Sirko and Goodman 2003</a> and <a class="reference external" href="https://iopscience.iop.org/article/10.1086/431923">Thompson et al. 2005</a> in a way that is simple, clear and highly customisable. Our aim is to provide a code that with the correct inputs provides a fully evolved AGN disk model through parametric 1D curves for key disk parameters such as temperature and density. We expect key applications of this code to be studies of migration torques in AGN disks, simulations of compact object formation inside gas disks, and comparisons with new, more complex models of AGN disks.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pagn</span></code> is under the GPLv3 licence. Please use <code class="docutils literal notranslate"><span class="pre">pagn</span></code> as you like but cite our work using the DOI above.</p>
-<p>The code is distributed under git version control at</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>Repository status:</strong> This repository is archived and no longer maintained.</p>
+<p>The project has moved to GitLab:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/DariaGangardt/pAGN">github.com/DariaGangardt/pAGN</a></p></li>
+<li><p><strong>Code repository:</strong> <a class="reference external" href="https://gitlab.com/aatrani/pagn">https://gitlab.com/aatrani/pagn</a></p></li>
+<li><p><strong>Documentation:</strong> <a class="reference external" href="https://aatrani.gitlab.io/pagn">https://aatrani.gitlab.io/pagn</a></p></li>
 </ul>
-<p>To install the code, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pagn</span>
+<p>Please use the GitLab repository for the latest version, issue tracking, and contributions.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pagn</span></code> is a Python module to solve the equations presented in Sirko &amp; Goodman (2003) and Thompson et al. (2005), providing fully evolved AGN disk models through parametric one-dimensional profiles of key disk properties such as temperature and density.</p>
+<p>Typical applications include:</p>
+<ul class="simple">
+<li><p>Migration torque calculations in AGN disks.</p></li>
+<li><p>Studies of compact-object formation and evolution in gaseous disks.</p></li>
+<li><p>Comparisons with more sophisticated AGN disk models.</p></li>
+<li><p>Population synthesis and gravitational-wave source modeling in AGN environments.</p></li>
+</ul>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>The package is available on PyPI and can be installed with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pagn
 </pre></div>
 </div>
-<p>Documentation can be found <a class="reference external" href="https://DariaGangardt.github.io/pAGN">here</a>, where we also provide examples for how to run the code.</p>
-<p>The code is maintained by Daria Gangardt and <a class="reference external" href="https://alessandrotrani.space">Alessandro A. Trani</a>. Please report bugs, errors and provide suggestions using github.
-Repository template provided by Davide Gerosa.</p>
-<p>We hope that you find <code class="docutils literal notranslate"><span class="pre">pagn</span></code> useful and that it saves you lots of time!</p>
+</section>
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading"></a></h2>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">pagn</span></code> in your research, please cite:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Gangardt</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="p">,</span> <span class="n">Trani</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span> <span class="n">A</span><span class="o">.</span><span class="p">,</span> <span class="n">Bonnerot</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="p">,</span> <span class="o">&amp;</span> <span class="n">Gerosa</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span> <span class="p">(</span><span class="mi">2024</span><span class="p">),</span>
+<span class="o">*</span><span class="n">pAGN</span><span class="p">:</span> <span class="n">the</span> <span class="n">one</span><span class="o">-</span><span class="n">stop</span> <span class="n">solution</span> <span class="k">for</span> <span class="n">AGN</span> <span class="n">disc</span> <span class="n">modeling</span><span class="o">*</span><span class="p">,</span>
+<span class="n">Monthly</span> <span class="n">Notices</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Royal</span> <span class="n">Astronomical</span> <span class="n">Society</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2403.00060">arXiv:2403.00060</a></p></li>
+<li><p><a class="reference external" href="https://scixplorer.org/abs/2024MNRAS.530.3689G/abstract">SciX link</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1093/mnras/stae1117">DOI: 10.1093/mnras/stae1117</a></p></li>
+</ul>
+</section>
 </section>
 
 
