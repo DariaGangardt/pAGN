@@ -8,17 +8,5 @@
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
+
    self
-
-   examples
-   
-   api
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
